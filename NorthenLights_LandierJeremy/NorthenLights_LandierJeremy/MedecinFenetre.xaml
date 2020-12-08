@@ -1,0 +1,176 @@
+﻿<Window
+    x:Class="NorthenLights_LandierJeremy.MedecinFenetre"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:NorthenLights_LandierJeremy"
+    mc:Ignorable="d"
+    Title="MEDECIN"
+    Height="400"
+    Width="550"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    Loaded="Window_Loaded">
+    <Grid>
+        <Label
+            Content="SORTIE PATIENT"
+            Style="{StaticResource TitleText}"
+            Margin="359,20,0,0" />
+        <Label
+            Content="NSS PATIENT"
+            HorizontalAlignment="Left"
+            Margin="42,103,0,0"
+            VerticalAlignment="Top"
+            Width="173" />
+        <ComboBox
+            x:Name="cboxNSS"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Width="150"
+            Height="25"
+            Margin="47,126,0,0"
+            IsSynchronizedWithCurrentItem="True"
+            ItemsSource="{Binding}"
+            DisplayMemberPath="NSS"
+            SelectionChanged="cboxNSS_SelectionChanged" />
+        <Label
+            Content="DATE SORTIE"
+            HorizontalAlignment="Left"
+            Margin="42,161,0,0"
+            VerticalAlignment="Top"
+            Width="173" />
+        <DatePicker
+            x:Name="datePickerSortie"
+            HorizontalAlignment="Left"
+            Margin="47,185,0,0"
+            VerticalAlignment="Top"
+            Width="150"
+            Height="30" />
+        <Label
+            Content="NOM"
+            HorizontalAlignment="Left"
+            Margin="302,80,0,0"
+            VerticalAlignment="Top"
+            Width="42"
+            HorizontalContentAlignment="Right" />
+        <TextBox
+            x:Name="txtBoxNom"
+            Margin="349,80,0,0"
+            IsEnabled="False" />
+        <Label
+            Content="PRÉNOM"
+            HorizontalAlignment="Left"
+            Margin="280,108,0,0"
+            VerticalAlignment="Top"
+            Width="64"
+            HorizontalContentAlignment="Right" />
+        <TextBox
+            x:Name="txtBoxPrenom"
+            Margin="349,108,0,0"
+            IsEnabled="False" />
+        <Label
+            Content="DATE NAISSANCE"
+            HorizontalAlignment="Left"
+            Margin="230,136,0,0"
+            VerticalAlignment="Top"
+            Width="114"
+            HorizontalContentAlignment="Right" />
+        <TextBox
+            x:Name="txtBoxDOB"
+            Margin="349,136,0,0"
+            IsEnabled="False" />
+        <Label
+            Content="ADRESSE"
+            HorizontalAlignment="Left"
+            Margin="280,164,0,0"
+            VerticalAlignment="Top"
+            Width="64"
+            HorizontalContentAlignment="Right" />
+        <TextBox
+            x:Name="txtBoxAdresse"
+            Margin="349,164,0,0"
+            IsEnabled="False" />
+        <Label
+            Content="VILLE"
+            HorizontalAlignment="Left"
+            Margin="302,192,0,0"
+            VerticalAlignment="Top"
+            Width="42"
+            HorizontalContentAlignment="Right" />
+        <TextBox
+            x:Name="txtBoxVille"
+            Margin="349,192,0,0"
+            IsEnabled="False" />
+        <Label
+            Content="PROVINCE"
+            HorizontalAlignment="Left"
+            Margin="272,220,0,0"
+            VerticalAlignment="Top"
+            Width="72"
+            HorizontalContentAlignment="Right" />
+        <TextBox
+            x:Name="txtBoxProvince"
+            Margin="349,220,0,0"
+            IsEnabled="False" />
+        <Label
+            Content="CODE POSTAL"
+            HorizontalAlignment="Left"
+            Margin="250,248,0,0"
+            VerticalAlignment="Top"
+            Width="94"
+            HorizontalContentAlignment="Right" />
+        <TextBox
+            x:Name="txtBoxCodePostal"
+            Margin="349,248,0,0"
+            IsEnabled="False" />
+        <Label
+            Content="TÉLÉPHONE"
+            HorizontalAlignment="Left"
+            Margin="264,275,0,0"
+            VerticalAlignment="Top"
+            Width="80"
+            HorizontalContentAlignment="Right" />
+        <TextBox
+            x:Name="txtBoxTelephone"
+            Margin="349,276,0,0"
+            IsEnabled="False" />
+        <Label
+            Content="DATE ADMISSION"
+            HorizontalAlignment="Left"
+            Margin="230,304,0,0"
+            VerticalAlignment="Top"
+            Width="114"
+            HorizontalContentAlignment="Right" />
+        <TextBox
+            x:Name="txtBoxAdmission"
+            Margin="349,304,0,0"
+            IsEnabled="False" />
+        <Button
+            Content="CONFIRMER"
+            HorizontalAlignment="Left"
+            Margin="67,250,0,0"
+            VerticalAlignment="Top"
+            Width="97"
+            Height="34"
+            Click="ConfirmerSortie_Click" />
+        <Rectangle
+            Fill="#FFAEFFFB"
+            HorizontalAlignment="Left"
+            Height="54"
+            Margin="25,11,0,0"
+            VerticalAlignment="Top"
+            Width="24" />
+        <Label
+            Content="N L H"
+            HorizontalAlignment="Left"
+            Margin="10,26,0,0"
+            VerticalAlignment="Top"
+            Width="55"
+            FontWeight="Bold"
+            Foreground="White"
+            HorizontalContentAlignment="Center"
+            Background="#FFA5FBFF"
+            Height="24" />
+    </Grid>
+</Window>

@@ -1,0 +1,426 @@
+﻿<Window
+    x:Class="NorthenLights_LandierJeremy.PreposeFenetre"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:NorthenLights_LandierJeremy"
+    mc:Ignorable="d"
+    Title="PREPOSE"
+    SizeToContent="WidthAndHeight"
+    WindowStartupLocation="CenterScreen"
+    ResizeMode="NoResize"
+    Loaded="Window_Loaded">
+    <Grid
+        Height="360">
+        <TabControl>
+            <TabItem
+                Header="AJOUT"
+                Margin="-2,-2,-31,0">
+                <Grid>
+                    <Label
+                        Content="AJOUTER PATIENT"
+                        Margin="403,20,0,0"
+                        Style="{StaticResource TitleText}" />
+                    <Label
+                        Content="NSS"
+                        HorizontalAlignment="Left"
+                        Margin="62,98,0,0"
+                        VerticalAlignment="Top"
+                        HorizontalContentAlignment="Right" />
+                    <TextBox
+                        x:Name="txtboxNSS"
+                        Margin="101,98,0,0"
+                        PreviewKeyDown="txtboxNSS_PreviewKeyDown"
+                        MaxLength="9" />
+                    <Label
+                        Content="NOM"
+                        HorizontalAlignment="Left"
+                        Margin="54,126,0,0"
+                        VerticalAlignment="Top"
+                        Width="42"
+                        HorizontalContentAlignment="Right" />
+                    <TextBox
+                        x:Name="txtboxNom"
+                        Margin="101,126,0,0" />
+                    <Label
+                        Content="PRÉNOM"
+                        HorizontalAlignment="Left"
+                        Margin="32,152,0,0"
+                        VerticalAlignment="Top"
+                        Width="64"
+                        HorizontalContentAlignment="Right" />
+                    <TextBox
+                        x:Name="txtboxPrenom"
+                        Margin="101,154,0,0" />
+                    <Label
+                        Content="DOB"
+                        HorizontalAlignment="Left"
+                        Margin="57,180,0,0"
+                        VerticalAlignment="Top"
+                        Width="39"
+                        HorizontalContentAlignment="Right" />
+                    <DatePicker
+                        x:Name="dateDOB"
+                        HorizontalAlignment="Left"
+                        Height="25"
+                        Margin="101,182,0,0"
+                        VerticalAlignment="Top"
+                        Width="150" />
+                    <Label
+                        Content="ADRESSE"
+                        HorizontalAlignment="Left"
+                        Margin="32,209,0,0"
+                        VerticalAlignment="Top"
+                        Width="64"
+                        HorizontalContentAlignment="Right" />
+                    <TextBox
+                        x:Name="txtboxAdresse"
+                        Margin="101,210,0,0" />
+                    <Label
+                        Content="VILLE"
+                        HorizontalAlignment="Left"
+                        Margin="324,98,0,0"
+                        VerticalAlignment="Top"
+                        Width="46"
+                        HorizontalContentAlignment="Right" />
+                    <TextBox
+                        x:Name="txtboxVille"
+                        Margin="375,98,0,0" />
+                    <Label
+                        Content="PROVINCE"
+                        HorizontalAlignment="Left"
+                        Margin="296,126,0,0"
+                        VerticalAlignment="Top"
+                        Width="74"
+                        HorizontalContentAlignment="Right" />
+                    <ComboBox
+                        x:Name="cboxProvince"
+                        Margin="375,126,0,0"
+                        SelectedIndex="10">
+                        <ListBoxItem
+                            Content="AB" />
+                        <ListBoxItem
+                            Content="BC" />
+                        <ListBoxItem
+                            Content="MB" />
+                        <ListBoxItem
+                            Content="NB" />
+                        <ListBoxItem
+                            Content="NL" />
+                        <ListBoxItem
+                            Content="NS" />
+                        <ListBoxItem
+                            Content="NT" />
+                        <ListBoxItem
+                            Content="NU" />
+                        <ListBoxItem
+                            Content="ON" />
+                        <ListBoxItem
+                            Content="PE" />
+                        <ListBoxItem
+                            Content="QC" />
+                        <ListBoxItem
+                            Content="SK" />
+                        <ListBoxItem
+                            Content="YT" />
+                    </ComboBox>
+                    <Label
+                        Content="CODE POSTAL"
+                        HorizontalAlignment="Left"
+                        Margin="274,154,0,0"
+                        VerticalAlignment="Top"
+                        Width="96"
+                        HorizontalContentAlignment="Right" />
+                    <TextBox
+                        x:Name="txtboxCodePostal"
+                        Margin="375,154,0,0"
+                        MaxLength="6" />
+                    <Label
+                        Content="TÉLÉPHONE"
+                        HorizontalAlignment="Left"
+                        Margin="288,182,0,0"
+                        VerticalAlignment="Top"
+                        Width="82"
+                        HorizontalContentAlignment="Right" />
+                    <TextBox
+                        x:Name="txtboxTelephone"
+                        Margin="375,182,0,0"
+                        MaxLength="10"
+                        PreviewKeyDown="txtboxTelephone_PreviewKeyDown" />
+                    <Label
+                        Content="ASSURANCE"
+                        HorizontalAlignment="Left"
+                        Margin="283,208,0,0"
+                        VerticalAlignment="Top"
+                        Width="87"
+                        HorizontalContentAlignment="Right" />
+                    <ComboBox
+                        x:Name="cboxAssurance"
+                        Margin="375,210,0,0"
+                        IsSynchronizedWithCurrentItem="True"
+                        ItemsSource="{Binding}"
+                        DisplayMemberPath="nomCompagnie" />
+                    <Button
+                        Content="AJOUTER"
+                        HorizontalAlignment="Left"
+                        Margin="443,272,0,0"
+                        VerticalAlignment="Top"
+                        Width="100"
+                        Height="35"
+                        Click="Ajouter_Click" />
+                </Grid>
+            </TabItem>
+            <TabItem
+                Header="ADMISSION"
+                Margin="34,-2,-53,0">
+                <Grid>
+                    <Label
+                        Content="ADMETTRE PATIENT"
+                        Margin="402,20,0,0"
+                        Style="{StaticResource TitleText}" />
+                    <Label
+                        Content="NSS PATIENT"
+                        HorizontalAlignment="Left"
+                        Margin="18,90,0,0"
+                        VerticalAlignment="Top"
+                        Width="87"
+                        HorizontalContentAlignment="Right" />
+                    <ComboBox
+                        x:Name="cboxNSS"
+                        Margin="110,89,0,0"
+                        IsSynchronizedWithCurrentItem="True"
+                        ItemsSource="{Binding}"
+                        DisplayMemberPath="NSS"
+                        SelectionChanged="cboxNSS_SelectionChanged" />
+                    <Label
+                        Content="NOM"
+                        HorizontalAlignment="Left"
+                        Margin="58,118,0,0"
+                        VerticalAlignment="Top"
+                        Width="47"
+                        HorizontalContentAlignment="Right" />
+                    <TextBox
+                        x:Name="txtboxAdmissionNom"
+                        Margin="110,117,0,0"
+                        IsEnabled="False" />
+                    <Label
+                        Content="PRENOM"
+                        HorizontalAlignment="Left"
+                        Margin="32,147,0,0"
+                        VerticalAlignment="Top"
+                        Width="73"
+                        HorizontalContentAlignment="Right" />
+                    <TextBox
+                        x:Name="txtboxAdmissionPrenom"
+                        Margin="110,146,0,0"
+                        IsEnabled="False" />
+                    <Label
+                        Content="NUMERO LIT"
+                        HorizontalAlignment="Left"
+                        Margin="21,231,0,0"
+                        VerticalAlignment="Top"
+                        Width="84"
+                        HorizontalContentAlignment="Right" />
+                    <ComboBox
+                        x:Name="cboxNumeroLit"
+                        Margin="110,231,0,0"
+                        IsSynchronizedWithCurrentItem="True"
+                        ItemsSource="{Binding}"
+                        DisplayMemberPath="numeroLit" />
+                    <Label
+                        Content="DEPARTEMENT"
+                        HorizontalAlignment="Left"
+                        Margin="-10,175,0,0"
+                        VerticalAlignment="Top"
+                        Width="115"
+                        HorizontalContentAlignment="Right" />
+                    <ComboBox
+                        x:Name="cboxDepartement"
+                        HorizontalAlignment="Left"
+                        Margin="110,175,0,0"
+                        VerticalAlignment="Top"
+                        Width="150"
+                        ToolTipService.ShowOnDisabled="True"
+                        ItemsSource="{Binding}"
+                        DisplayMemberPath="nomDepartement"
+                        SelectionChanged="SelectionChanged"
+                        IsSynchronizedWithCurrentItem="True" />
+                    <Label
+                        Content="TYPE LIT"
+                        HorizontalAlignment="Left"
+                        Margin="22,202,0,0"
+                        VerticalAlignment="Top"
+                        Width="83"
+                        HorizontalContentAlignment="Right" />
+                    <ComboBox
+                        x:Name="cboxTypeLit"
+                        Margin="110,203,0,0"
+                        ItemsSource="{Binding}"
+                        DisplayMemberPath="description"
+                        SelectionChanged="SelectionChanged"
+                        IsSynchronizedWithCurrentItem="True" />
+                    <Label
+                        Content="MEDECIN"
+                        HorizontalAlignment="Left"
+                        Margin="301,89,0,0"
+                        VerticalAlignment="Top"
+                        Width="87"
+                        HorizontalContentAlignment="Right" />
+                    <ComboBox
+                        x:Name="cboxMedecin"
+                        Margin="394,89,0,0"
+                        IsSynchronizedWithCurrentItem="True"
+                        ItemsSource="{Binding}"
+                        DisplayMemberPath="IDMedecin" />
+                    <Label
+                        Content="DATE ADMISSION"
+                        HorizontalAlignment="Left"
+                        Margin="274,118,0,0"
+                        VerticalAlignment="Top"
+                        Width="115"
+                        HorizontalContentAlignment="Right" />
+                    <DatePicker
+                        x:Name="dateAdmission"
+                        HorizontalAlignment="Left"
+                        Margin="394,117,0,0"
+                        VerticalAlignment="Top"
+                        Height="25"
+                        Width="150" />
+                    <Label
+                        Content="DATE CHIRURGIE"
+                        HorizontalAlignment="Left"
+                        Margin="274,146,0,0"
+                        VerticalAlignment="Top"
+                        Width="115"
+                        HorizontalContentAlignment="Right" />
+                    <DatePicker
+                        x:Name="dateChirurgie"
+                        HorizontalAlignment="Left"
+                        Margin="394,146,0,0"
+                        VerticalAlignment="Top"
+                        Height="25"
+                        Width="150"
+                        ToolTipService.ShowOnDisabled="True"
+                        ToolTip="La case 'Chirurgie' doit être cochée pour choisir une date de chirurgie"
+                        IsEnabled="False" />
+                    <CheckBox
+                        x:Name="chckChirurgie"
+                        Content="chirurgie"
+                        HorizontalAlignment="Left"
+                        Margin="393,183,0,0"
+                        VerticalAlignment="Top"
+                        Click="chckChirurgie_Click" />
+                    <CheckBox
+                        x:Name="chckChoixLit"
+                        Content="Choix Lit"
+                        HorizontalAlignment="Left"
+                        Margin="473,183,0,0"
+                        VerticalAlignment="Top"
+                        IsEnabled="False"
+                        Click="chckChoixLit_Click"
+                        ToolTip="Permet l'assignation d'un lit si les choix disponibles ne conviennent pas au patient assigné en pédiatrie"
+                        ToolTipService.ShowOnDisabled="True" />
+                    <CheckBox
+                        x:Name="chckTelephone"
+                        Content="telephone"
+                        HorizontalAlignment="Left"
+                        Margin="393,211,0,0"
+                        VerticalAlignment="Top" />
+                    <CheckBox
+                        x:Name="chckTeleviseur"
+                        Content="televiseur"
+                        HorizontalAlignment="Left"
+                        Margin="473,212,0,0"
+                        VerticalAlignment="Top" />
+                    <Button
+                        Content="ADMETTRE"
+                        HorizontalAlignment="Left"
+                        Margin="443,272,0,0"
+                        VerticalAlignment="Top"
+                        Width="100"
+                        RenderTransformOrigin="0.476,0.433"
+                        Height="35"
+                        Click="Admettre_Click" />
+                    <TextBox
+                        x:Name="txtLitOccupe"
+                        Text=""
+                        HorizontalAlignment="Left"
+                        Margin="110,258,0,0"
+                        VerticalAlignment="Top"
+                        Width="150"
+                        Foreground="red"
+                        Height="64"
+                        TextWrapping="Wrap"
+                        Background="{x:Null}"
+                        BorderBrush="{x:Null}"
+                        FontSize="10"
+                        IsEnabled="False" />
+                </Grid>
+            </TabItem>
+            <TabItem
+                Header="RECHERCHER"
+                Margin="56,-2,-60,0">
+                <Grid
+                    Width="587">
+                    <Label
+                        Content="RECHERCHER PATIENT"
+                        Margin="402,20,0,0"
+                        Style="{StaticResource TitleText}" />
+                    <DataGrid
+                        x:Name="dataRecherchePatient"
+                        Margin="0,81,0,0" 
+                        AutoGenerateColumns="False"
+                        ItemsSource="{Binding}"
+                        SelectionChanged="dataRecherchePatient_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                                Header="NSS"
+                                Width="*"
+                                Binding="{Binding NSS}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+                                Header="Nom"
+                                Width="*"
+                                Binding="{Binding nom}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+                                Header="Prenom"
+                                Width="*"
+                                Binding="{Binding prenom}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+                                Header="Date Naissance"
+                                Width="*"
+                                Binding="{Binding dateNaissance , StringFormat=d}">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn
+                                Header="Telephone"
+                                Width="*"
+                                Binding="{Binding telephone}">
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Rectangle
+            Fill="#FFAEFFFB"
+            HorizontalAlignment="Left"
+            Height="54"
+            Margin="37,41,0,0"
+            VerticalAlignment="Top"
+            Width="24" />
+        <Label
+            Content="N L H"
+            HorizontalAlignment="Left"
+            Margin="22,56,0,0"
+            VerticalAlignment="Top"
+            Width="55"
+            FontWeight="Bold"
+            Foreground="White"
+            HorizontalContentAlignment="Center"
+            Background="#FFA5FBFF"
+            Height="24" />
+    </Grid>
+</Window>

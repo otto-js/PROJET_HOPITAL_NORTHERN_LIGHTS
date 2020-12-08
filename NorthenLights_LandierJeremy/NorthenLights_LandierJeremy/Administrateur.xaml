@@ -1,0 +1,193 @@
+﻿<Window
+    x:Class="NorthenLights_LandierJeremy.Administrateur"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:NorthenLights_LandierJeremy"
+    mc:Ignorable="d"
+    Title="ADMIN"
+    SizeToContent="WidthAndHeight"
+    ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+    Loaded="Window_Loaded">
+    <Grid
+        Height="393">
+        <Label
+            Content="ADMINISTRER MEDECIN"
+            Margin="214,29,0,0"
+            Style="{StaticResource TitleText}" />
+        <Menu
+            HorizontalAlignment="Left"
+            Height="18"
+            VerticalAlignment="Top"
+            Width="399">
+            <MenuItem
+                Header="Consulter Patients"
+                Click="ConsultationPatients_Click" />
+        </Menu>
+        <DataGrid
+            x:Name="dataMedecin"
+            HorizontalAlignment="Left"
+            Height="157"
+            Margin="5,85,0,0"
+            VerticalAlignment="Top"
+            Width="389"
+            BorderBrush="#FF92E6D7"
+            IsSynchronizedWithCurrentItem="True"
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding}"
+            SelectionChanged="DataMedecin_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Header="IDMédecin"
+                    Binding="{Binding IDMedecin}" />
+                <DataGridTextColumn
+                    Width="100"
+                    Header="Prénom"
+                    Binding="{Binding prenom}" />
+                <DataGridTextColumn
+                    Width="*"
+                    Header="Nom"
+                    Binding="{Binding nom}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TabControl
+            HorizontalAlignment="Left"
+            Height="143"
+            VerticalAlignment="Top"
+            Width="389"
+            Margin="5,245,0,0">
+            <TabItem
+                x:Name="tabAjouter"
+                Header="AJOUTER"
+                Width="125"
+                Margin="-2,-2,2,0">
+                <Grid>
+                    <Label
+                        Content="NOM"
+                        HorizontalAlignment="Left"
+                        Margin="33,5,0,0"
+                        VerticalAlignment="Top"
+                        Width="120" />
+                    <TextBox
+                        x:Name="txtboxNom"
+                        Height="25"
+                        Margin="33,26,0,0"
+                        TextWrapping="Wrap"
+                        Width="150"
+                        KeyDown="KeyDown" />
+                    <Label
+                        Content="PRENOM"
+                        HorizontalAlignment="Left"
+                        Margin="33,54,0,0"
+                        VerticalAlignment="Top"
+                        Width="120" />
+                    <TextBox
+                        x:Name="txtboxPrenom"
+                        Margin="33,75,0,0"
+                        KeyDown="KeyDown" />
+                    <Button
+                        Content="AJOUTER"
+                        HorizontalAlignment="Left"
+                        Margin="260,43,0,0"
+                        VerticalAlignment="Top"
+                        Width="98"
+                        Click="Ajout_Click"
+                        Height="38" />
+                </Grid>
+            </TabItem>
+            <TabItem
+                Header="MODIFIER"
+                Width="125"
+                Margin="2,-2,-2,0">
+                <Grid>
+
+                    <Label
+                        Content="NOM"
+                        HorizontalAlignment="Left"
+                        Margin="33,5,0,0"
+                        VerticalAlignment="Top"
+                        Width="120" />
+                    <TextBox
+                        x:Name="txtboxModifieNom"
+                        Margin="33,26,0,0"
+                        KeyDown="KeyDown" />
+                    <Label
+                        Content="PRENOM"
+                        HorizontalAlignment="Left"
+                        Margin="33,54,0,0"
+                        VerticalAlignment="Top"
+                        Width="120" />
+                    <TextBox
+                        x:Name="txtboxModifiePrenom"
+                        Margin="33,74,0,0"
+                        KeyDown="KeyDown" />
+                    <Button
+                        Content="MODIFIER"
+                        HorizontalAlignment="Left"
+                        Margin="260,43,0,0"
+                        VerticalAlignment="Top"
+                        Width="98"
+                        Click="Modifier_Click"
+                        Height="38" />
+                </Grid>
+            </TabItem>
+            <TabItem
+                Header="SUPPRIMER"
+                Width="125"
+                Margin="6,-2,-6,0">
+                <Grid>
+                    <Label
+                        Content="NOM"
+                        HorizontalAlignment="Left"
+                        Margin="33,5,0,0"
+                        VerticalAlignment="Top"
+                        Width="120" />
+                    <TextBox
+                        x:Name="txtboxSupprimeNom"
+                        Margin="33,26,0,0"
+                        IsEnabled="False" />
+                    <Label
+                        Content="PRENOM"
+                        HorizontalAlignment="Left"
+                        Margin="33,54,0,0"
+                        VerticalAlignment="Top"
+                        Width="120" />
+                    <TextBox
+                        x:Name="txtboxSupprimePrenom"
+                        Margin="33,74,0,0"
+                        IsEnabled="False" />
+                    <Button
+                        Content="SUPPRIMER"
+                        HorizontalAlignment="Left"
+                        Margin="260,43,0,0"
+                        VerticalAlignment="Top"
+                        Width="98"
+                        Height="38"
+                        Click="Supprimer_Click" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Rectangle
+            Fill="#FFAEFFFB"
+            HorizontalAlignment="Left"
+            Height="54"
+            Margin="26,26,0,0"
+            VerticalAlignment="Top"
+            Width="24" />
+        <Label
+            Content="N L H"
+            HorizontalAlignment="Left"
+            Margin="11,41,0,0"
+            VerticalAlignment="Top"
+            Width="55"
+            FontWeight="Bold"
+            Foreground="White"
+            HorizontalContentAlignment="Center"
+            Background="#FFA5FBFF"
+            Height="24" />
+
+    </Grid>
+</Window>
+
